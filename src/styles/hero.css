@@ -41,6 +41,44 @@
     background: var(--btn-secondary-bg);
     border: 1px solid var(--btn-primary-bg);
 }
+.primary__btn:hover{
+    background: var(--btn-primary-bg);
+    border: 1px solid var(--btn-secondary-bg);
+    transition: all 0.3s ease;
+}
 .secondary__btn{
     background: var(--btn-primary-bg);
+}
+@media only screen and (max-width:992px){
+    .hero__content h2{
+        font-size: 2rem;
+        line-height: 50px;
+    }
+}
+@media only screen and (max-width:768px){
+    .hero__wrapper{
+        padding-bottom: 0;
+    }
+    .hero__content h2{
+        font-size:1.5rem;
+        line-height: 45px;
+    }
+    .hero__content p{
+        font-size: 0.9rem;
+    }
+    .primary__btn,.secondary__btn{
+        font-size: 0.8rem;
+    }
+    .hero__content,.hero__img{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:600px){
+    .hero__content, .hero__img{
+        width:100%;
+    }
+    .hero__wrapper{
+        flex-direction: column;
+        padding-bottom: 0;
+    }
 }

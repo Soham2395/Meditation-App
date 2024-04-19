@@ -60,6 +60,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 body{
   background: var(--body-bg);
@@ -97,9 +98,23 @@ h1,h2{
   color:#090238;
   font-weight: 600;
 }
+.light-theme .primary__btn:hover{
+  color:#090238;
+}
 .light-theme a{
   font-weight:500;
 }
 .light-theme .team__img{
   background-color:#ddd;
+}
+
+@media only screen and (max-width:1024px){
+  .container{
+    width: 100%;
+  }
+}
+@media only screen and (max-width:768px){
+  section{
+    padding: 40px 0px;
+  }
 }

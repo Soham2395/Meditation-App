@@ -36,6 +36,10 @@
     border: 1px solid var(--primary-color);
     border-radius: 5px;
 }
+.choose__us-icon:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
 .choose__us-icon i{
     font-size: 2rem;
     color: var(--primary-color);
@@ -46,4 +50,24 @@
 }
 .light-theme .choose__us-title{
     color:#0c123d;
+}
+@media only screen and (max-width:992px){
+    .about__content h2{
+        font-size:1.5rem;
+    }
+}
+@media only screen and (max-width:768px){
+    .about__wrapper{
+        flex-direction: column;
+        padding-top: 0;
+    }
+    .about__content,.about__img{
+        width:100%;
+    }
+    .about__img img{
+        height: 400px !important;
+    }
+    .about__content {
+        margin-bottom: 30px;
+    }
 }

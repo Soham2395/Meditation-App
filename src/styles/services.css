@@ -5,9 +5,15 @@
 }
 .services__item{
     background: var(--card-bg);
+    border:1px solid var(--primary-color);
+    border-radius:8px;
     width:25%;
     padding: 30px 15px;
     text-align: center;
+}
+.services__item:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease;
 }
 .service__item-wrapper{
     display:flex;
@@ -41,4 +47,33 @@
     color:var(--primary-color);
     font-size:1.3rem;
     margin-bottom: 30px;
+}
+@media only screen and (max-width:992px){
+    .services__top-content h2{
+        font-size:1.5rem;
+    }
+    .services__item-wrapper{
+        flex-wrap:wrap;
+    }
+    .services__item{
+        width: 31%;
+        margin-bottom: 30px;
+    }
+}
+@media only screen and (max-width:768px){
+    .services__top-content{
+        padding-top: 0;
+    }
+    .services__item{
+        width: 47.7%;
+    }
+    .service__title{
+        font-size:1.2rem;
+    
+    }
+}
+@media only screen and (max-width:576px){
+    .services__item{
+        width: 100%;
+    }
 }
