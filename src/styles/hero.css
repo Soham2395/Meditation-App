@@ -9,6 +9,12 @@
 .hero__img img{
     width: 100%;
 }
+.light-theme .hero__img{
+    padding-left: 8rem;
+}
+.light-theme .hero__img img{
+    width:80%;
+}
 .hero__content{
     padding-top:40px;
 }

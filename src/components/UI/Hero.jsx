@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import '../../styles/hero.css';
-import heroDarkImg from '../../images/hero-img.png';
-import lightImg from '../../images/light-hero-bg.jpg';
+import heroDarkImg from '../../images/dark-hero-bg.png';
+import lightImg from '../../images/light-hero-bg.png';
 
 const Hero = ({ theme }) => {
   const [highlightText, setHighlightText] = useState('');
@@ -16,21 +16,21 @@ const Hero = ({ theme }) => {
     if (highlightVisible) {
       const timeout = setTimeout(() => {
         setHighlightText(texts[currentTextIndex].substring(0, highlightText.length + 1));
-      }, 200); // Adjust typing speed as needed
+      }, 200); 
 
       if (highlightText.length === textLength) {
         setHighlightVisible(false);
         setTimeout(() => {
           setCurrentTextIndex((currentTextIndex + 1) % texts.length);
           setHighlightVisible(true);
-        }, 1500); // Delay before removing text
+        }, 1500); 
       }
 
       return () => clearTimeout(timeout);
     } else {
       const timeout = setTimeout(() => {
         setHighlightText(highlightText.substring(0, highlightText.length - 1));
-      }, 100); // Adjust deletion speed as needed
+      }, 100); 
 
       if (highlightText.length === 0) {
         setHighlightVisible(true);
