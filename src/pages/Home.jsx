@@ -1,17 +1,18 @@
-import 'C:/Users/soham/meditation-app/src/App.css';
+import '../App.css';
 import React, { useState, useEffect } from 'react';
 import Spinner from "react-spinkit";
 
-import Header from 'C:/Users/soham/meditation-app/src/components/Header/Header.jsx';                                                    
-import Hero from 'C:/Users/soham/meditation-app/src/components/UI/Hero.jsx';
-import Counter from 'C:/Users/soham/meditation-app/src/components/UI/Counter.jsx';
-import Services from 'C:/Users/soham/meditation-app/src/components/UI/Services.jsx';
-import About from 'C:/Users/soham/meditation-app/src/components/UI/About.jsx';
-import Team from 'C:/Users/soham/meditation-app/src/components/UI/Team.jsx';
-import Blog from 'C:/Users/soham/meditation-app/src/components/UI/Blog.jsx';
-import Testimonial from 'C:/Users/soham/meditation-app/src/components/UI/Testimonial.jsx';
-import Newsletter from 'C:/Users/soham/meditation-app/src/components/UI/Newsletter.jsx';
-import Footer from 'C:/Users/soham/meditation-app/src/components/Footer/Footer.jsx';
+import Header from '../components/Header/Header';
+import Hero from '../components/UI/Hero';
+import Counter from '../components/UI/Counter';
+import Services from '../components/UI/Services';
+import About from '../components/UI/About';
+import Team from '../components/UI/Team';
+import Blog from '../components/UI/Blog';
+import Testimonial from '../components/UI/Testimonial';
+import Newsletter from '../components/UI/Newsletter';
+import Footer from '../components/Footer/Footer';
+
 
 function App() {
   const [theme, setTheme] = useState('');
