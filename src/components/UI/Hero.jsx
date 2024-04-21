@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import '../../styles/hero.css';
 import heroDarkImg from '../../images/dark-hero-bg.png';
 import lightImg from '../../images/light-hero-bg.png';
+import { Link } from 'react-router-dom';
 
 const Hero = ({ theme }) => {
   const [highlightText, setHighlightText] = useState('');
@@ -52,7 +53,7 @@ const Hero = ({ theme }) => {
             </div>
             <p className="description">Our app offers a variety of tools to help you reduce stress, improve focus, and enhance your overall well-being!</p>
             <div className="hero__btns">
-              <button className="primary__btn">Get Started Now</button>
+              <Link to="/login" className="primary__btn">Get Started Now</Link>
               <button className="secondary__btn">Discover More</button>
             </div>
           </div>
