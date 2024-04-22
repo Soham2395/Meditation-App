@@ -51,9 +51,14 @@ const About = () => {
                 ))}
             </div>
             </motion.div>
-            <div className="about__img">
+            <motion.div 
+            variants={fadeIn("left",0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{once:false,amount:0.7}}
+            className="about__img">
                 <img src={aboutImg} alt=""/>
-            </div>
+            </motion.div>
         </div>
     </div>
   </section>
