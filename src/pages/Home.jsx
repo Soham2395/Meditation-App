@@ -12,6 +12,7 @@ import Blog from '../components/UI/Blog';
 import Testimonial from '../components/UI/Testimonial';
 import Newsletter from '../components/UI/Newsletter';
 import Footer from '../components/Footer/Footer';
+import Loader from '../images/Sticker-Yoga.gif';
 
 
 function App() {
@@ -36,8 +37,8 @@ function App() {
     <>
       {isLoading ? (
         <div className="spinner-container">
-          <h1>Improve your focus</h1>
-          <Spinner name="ball-spin-fade-loader" color="#379cf6"/>
+          <img src={Loader} alt="Loader"></img>
+          <Spinner name="ball-spin-fade-loader" color="#379cf6" style={{ marginTop: '60px' }}/>
         </div>
       ) : (
         <>

@@ -120,18 +120,14 @@ h1,h2{
 }
 .spinner-container {
   position: fixed;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  width: 500px;
-  height: 500px;
+  width: 350px;
+  height: 350px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.spinner-container h1{
-  margin-right:50px;
-  font-size: 2rem;
-  color: #fff;
 }
