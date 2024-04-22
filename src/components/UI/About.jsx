@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/about.css';
-import aboutImg from '../../images/about-us.jpg';
+import aboutImg from '../../images/about-us.png';
 import {motion} from 'framer-motion';
 import {fadeIn} from '../../variants';
 
