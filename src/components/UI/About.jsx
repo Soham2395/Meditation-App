@@ -35,7 +35,7 @@ const About = () => {
             <h2>Choose from a range of guided </h2>
             <h2 className="highlight">meditation sessions</h2>
             <p className="description about__content-desc">
-            Choose from a range of guided meditation sessions designed to meet your needs. Whether you're looking to relax, reduce anxiety, or improve sleep, we have sessions for every purpose and experience level.
+            Whether you're looking to relax, reduce anxiety, or improve sleep, we have sessions for every purpose and experience level.
             </p>
             <div className="choose__item-wrapper">
                 {chooseData.map((item,index)=>(
@@ -51,14 +51,9 @@ const About = () => {
                 ))}
             </div>
             </motion.div>
-            <motion.div
-            variants={fadeIn("left",0.2)}
-            initial="hidden"
-            whileInView={"show"}
-            viewport={{once:false,amount:0.7}}
-            className="about__img">
+            <div className="about__img">
                 <img src={aboutImg} alt=""/>
-            </motion.div>
+            </div>
         </div>
     </div>
   </section>
