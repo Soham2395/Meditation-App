@@ -3,6 +3,8 @@ import '../../styles/hero.css';
 import heroDarkImg from '../../images/dark-hero-bg.png';
 import lightImg from '../../images/light-hero-bg.png';
 import { Link } from 'react-router-dom';
+import {motion} from 'framer-motion';
+import {fadeIn} from '../../variants';
 
 const Hero = ({ theme }) => {
   const [highlightText, setHighlightText] = useState('');
@@ -45,7 +47,12 @@ const Hero = ({ theme }) => {
     <section className="hero__section">
       <div className="container">
         <div className="hero__wrapper">
-          <div className="hero__content">
+          <motion.div 
+          variants={fadeIn("up",0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{once:false,amount:0.7}}
+          className="hero__content">
             <div>
               <h2>We are creating perfect</h2>
               <h2>space for meditation to</h2>
@@ -56,10 +63,15 @@ const Hero = ({ theme }) => {
               <Link to="/login" className="primary__btn">Get Started Now</Link>
               <button className="secondary__btn">Discover More</button>
             </div>
-          </div>
-          <div className="hero__img">
+          </motion.div>
+          <motion.div 
+          variants={fadeIn("left",0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{once:false,amount:0.7}}
+          className="hero__img">
             <img src={theme === 'light-theme' ? lightImg : heroDarkImg} alt="hero-img" />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

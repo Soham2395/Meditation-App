@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../styles/about.css';
 import aboutImg from '../../images/about-us.jpg';
+import {motion} from 'framer-motion';
+import {fadeIn} from '../../variants';
 
 const chooseData=[
     {
@@ -23,7 +25,12 @@ const About = () => {
   return <section id="about">
     <div className="container">
         <div className="about__wrapper">
-            <div className="about__content">
+            <motion.div
+            variants={fadeIn("up",0.2)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{once:false,amount:0.7}}
+            className="about__content">
             <h6 className="subtitle">Why choose us</h6>
             <h2>Choose from a range of guided </h2>
             <h2 className="highlight">meditation sessions</h2>
@@ -43,10 +50,15 @@ const About = () => {
                     </div>
                 ))}
             </div>
-            </div>
-            <div className="about__img">
+            </motion.div>
+            <motion.div
+            variants={fadeIn("left",0.2)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{once:false,amount:0.7}}
+            className="about__img">
                 <img src={aboutImg} alt=""/>
-            </div>
+            </motion.div>
         </div>
     </div>
   </section>

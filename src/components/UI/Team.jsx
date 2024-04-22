@@ -5,6 +5,8 @@ import team01 from '../../images/team-01.png';
 import team02 from '../../images/team-02.png';
 import team03 from '../../images/team-03.png';
 import team04 from '../../images/team-04.png';
+import {motion} from 'framer-motion';
+import {fadeIn} from '../../variants';
 
 const teamMembers=[
     {
@@ -32,11 +34,21 @@ const teamMembers=[
 const Team = () => {
   return <section className="our__team">
     <div className="container">
-        <div className="team__content">
+        <motion.div
+        variants={fadeIn("left",0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{once:false,amount:0.7}}
+        className="team__content">
             <h6 className="subtitle">Our Team</h6>
             <h2>Meet with <span className="highlight">our team</span></h2>
-        </div>
-        <div className="team__wrapper">
+        </motion.div>
+        <motion.div
+        variants={fadeIn("up",0.2)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{once:false,amount:0.7}}
+        className="team__wrapper">
             {
                 teamMembers.map((item,index)=>(
                     <div className="team__item" key={index}>
@@ -58,7 +70,7 @@ const Team = () => {
                     </div>
                 ))
             }
-        </div>
+        </motion.div>
     </div>
   </section>
 }

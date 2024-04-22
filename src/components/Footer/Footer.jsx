@@ -1,5 +1,7 @@
 import React from 'react';
 import './footer.css';
+import {motion} from 'framer-motion';
+import {fadeIn} from '../../variants';
 
 const quickLinks01=[
     {
@@ -47,7 +49,12 @@ const Footer = () => {
     const year=new Date().getFullYear();
   return <footer className="footer">
     <div className="container">
-        <div className="footer__wrapper">
+        <motion.div
+        variants={fadeIn("up",0.2)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{once:false,amount:0.7}}
+        className="footer__wrapper">
             <div className="footer__logo">
                 <h2>Meditation App</h2>
                 <p className="description">Improve your focus</p>
@@ -88,8 +95,13 @@ const Footer = () => {
                     }
                 </ul>
             </div>
-        </div>
-        <p className="copyright">Copyright {year}. All rights reserved.{" "}</p>
+        </motion.div>
+        <motion.p
+        variants={fadeIn("left",0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{once:false,amount:0.7}}
+        className="copyright">Copyright {year}. All rights reserved.{" "}</motion.p>
     </div>
   </footer>
 }
