@@ -1,15 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "../images/photos.gif";
 import Logo from "../images/logo1.gif";
 import GoogleSvg from "../images/icons8-google.svg";
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
 import "../styles/login.css";
-
+import Swal from "sweetalert2";
 
 
 const Login = () => {
   const [ showPassword, setShowPassword ] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const validEmail = "sohamchakraborty365@gmail.com";
+  const validPassword = "soham123";
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please enter both email and password",
+      });
+      return;
+    }
+
+    if (email === validEmail && password === validPassword) {
+      Swal.fire({
+        icon: "success",
+        title: "Login Successful",
+        text: "Redirecting...",
+        timer: 1500,
+        showConfirmButton: false,
+      }).then(() => {
+        window.location.href = "https://3-d-slider-react-js.vercel.app/";
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid email or password",
+      });
+    }
+  };
 
 
   return (
@@ -25,10 +59,14 @@ const Login = () => {
           <div className="login-center">
             <h2>Welcome back!</h2>
             <p>Please enter your details</p>
-            <form>
-              <input type="email" placeholder="Email" />
+            {error && <p className="error-message">{error}</p>}
+            <form onSubmit={handleSubmit}>
+              <input type="email" placeholder="Email" value={email}
+              onChange={(e) => setEmail(e.target.value)}/>
               <div className="pass-input-div">
-                <input type={showPassword ? "text" : "password"} placeholder="Password" />
+                <input type={showPassword ? "text" : "password"} placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)} />
                 {showPassword ? <FaEyeSlash onClick={() => {setShowPassword(!showPassword)}} /> : <FaEye onClick={() => {setShowPassword(!showPassword)}} />}
                 
               </div>
@@ -45,7 +83,7 @@ const Login = () => {
                 </a>
               </div>
               <div className="login-center-buttons">
-                <button type="button"><a href="https://3-d-slider-react-js.vercel.app/">Log In</a></button>
+                <button type="submit">Log In</button>
                 <button type="button">
                   <img src={GoogleSvg} alt="" />
                   Log in with Google
