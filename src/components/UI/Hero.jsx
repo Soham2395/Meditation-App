@@ -61,7 +61,6 @@ const Hero = ({ theme }) => {
             <p className="description">Our app offers a variety of tools to help you reduce stress, improve focus, and enhance your overall well-being!</p>
             <div className="hero__btns">
               <Link to="/login" className="primary__btn">Get Started Now</Link>
-              <button className="secondary__btn"><a href="https://3-d-slider-react-js.vercel.app/">Discover More</a></button>
             </div>
           </motion.div>
           <motion.div 

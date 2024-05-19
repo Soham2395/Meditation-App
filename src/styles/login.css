@@ -76,7 +76,7 @@
   font-weight: 400;
   font-size: 2rem;
   margin-bottom: 40px;
-  color:#816aff;
+  color:#379cf6;
 }
 
 form input[type='email'],
@@ -142,7 +142,7 @@ form button[type='submit'] {
   font-weight: 500;
   cursor: pointer;
   margin-top: 2px;
-  color: #816aff;
+  color: #379cf6;
 }
 
 .forgot-pass-link{
@@ -162,7 +162,7 @@ form button[type='submit'] {
 }
 
 .login-center-buttons button:nth-child(1){
-  background-color: #816aff;
+  background-color: #379cf6;
   color: white;
   border: 3px solid black;
 }
@@ -187,19 +187,19 @@ form button[type='submit'] {
 
 .login-center-buttons button:nth-child(2):hover{
   transition: 0.3s ease;
-  background-color: #379cf6;
+  color: #379cf6;
 }
 
 .login-bottom-p{
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding-bottom: 40px;
-  color:#816aff;
+  color:#379cf6;
 }
 
 .login-bottom-p a{
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .login-bottom-p a:hover{
