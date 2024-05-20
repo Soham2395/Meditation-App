@@ -5,17 +5,18 @@ import GoogleSvg from "../images/icons8-google.svg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "../styles/login.css";
 import Swal from "sweetalert2";
-import { auth, provider, signInWithPopup } from "../firebaseConfig";
+import { auth, provider, signInWithPopup, createUserWithEmailAndPassword } from "../firebaseConfig";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSignup, setIsSignup] = useState(false);
   const [error, setError] = useState("");
 
   const validEmail = "sohamchakraborty365@gmail.com";
   const validPassword = "soham123";
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email || !password) {
@@ -27,21 +28,43 @@ const Login = () => {
       return;
     }
 
-    if (email === validEmail && password === validPassword) {
-      Swal.fire({
-        icon: "success",
-        title: "Login Successful",
-        text: "Redirecting...",
-        timer: 1500,
-        showConfirmButton: false,
-      }).then(() => {
-        window.location.href = "https://3-d-slider-react-js.vercel.app/";
-      });
+    if (isSignup) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          Swal.fire({
+            icon: "success",
+            title: "Signup Successful",
+            text: "Redirecting...",
+            timer: 1500,
+            showConfirmButton: false,
+          }).then(() => {
+            window.location.href = "https://3-d-slider-react-js.vercel.app/";
+          });
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            title: "Signup Failed",
+            text: error.message,
+          });
+        });
     } else {
-      Swal.fire({
-        icon: "error",
-        title: "Invalid email or password",
-      });
+      if (email === validEmail && password === validPassword) {
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful",
+          text: "Redirecting...",
+          timer: 1500,
+          showConfirmButton: false,
+        }).then(() => {
+          window.location.href = "https://3-d-slider-react-js.vercel.app/";
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Invalid email or password",
+        });
+      }
     }
   };
 
@@ -78,8 +101,8 @@ const Login = () => {
             <img src={Logo} alt="" />
           </div>
           <div className="login-center">
-            <h2>Welcome back!</h2>
-            <p>Please enter your details</p>
+            <h2>{isSignup ? "Create Account" : "Welcome back!"}</h2>
+            <p>{isSignup ? "Sign up to get started" : "Please enter your details"}</p>
             {error && <p className="error-message">{error}</p>}
             <form onSubmit={handleSubmit}>
               <input
@@ -102,27 +125,32 @@ const Login = () => {
                 )}
               </div>
 
-              <div className="login-center-options">
-                <div className="remember-div">
-                  <input type="checkbox" id="remember-checkbox" />
-                  <label htmlFor="remember-checkbox">Remember for 30 days</label>
+              {!isSignup && (
+                <div className="login-center-options">
+                  <div className="remember-div">
+                    <input type="checkbox" id="remember-checkbox" />
+                    <label htmlFor="remember-checkbox">Remember for 30 days</label>
+                  </div>
+                  <a href="#" className="forgot-pass-link">
+                    Forgot password?
+                  </a>
                 </div>
-                <a href="#" className="forgot-pass-link">
-                  Forgot password?
-                </a>
-              </div>
+              )}
               <div className="login-center-buttons">
-                <button type="submit">Log In</button>
+                <button type="submit">{isSignup ? "Sign Up" : "Log In"}</button>
                 <button type="button" onClick={handleGoogleSignIn}>
                   <img src={GoogleSvg} alt="" />
-                  Log in with Google
+                  {isSignup ? "Sign up with Google" : "Log in with Google"}
                 </button>
               </div>
             </form>
           </div>
 
           <p className="login-bottom-p">
-            Don't have an account? <a href="#">Sign Up</a>
+            {isSignup ? "Already have an account?" : "Don't have an account?"}{" "}
+            <a href="#" onClick={() => setIsSignup(!isSignup)}>
+              {isSignup ? "Log In" : "Sign Up"}
+            </a>
           </p>
         </div>
       </div>
